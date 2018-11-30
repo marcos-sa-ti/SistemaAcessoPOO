@@ -9,6 +9,7 @@ import Classes.Funcionario;
 import Classes.Pessoa;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import Classes.ServicoFuncionario;
 
 
 
@@ -70,6 +71,11 @@ public class tela_cadastro_funcionario extends javax.swing.JFrame {
         jLabel7.setText("Empresa:");
 
         campoTextoDigitado.setText("jTextField1");
+        campoTextoDigitado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoTextoDigitadoActionPerformed(evt);
+            }
+        });
 
         campoRgDigitado.setText("jTextField2");
 
@@ -163,8 +169,7 @@ public class tela_cadastro_funcionario extends javax.swing.JFrame {
     // Botão salvar produto
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-       
-        if (!modoEdicao) {
+       if (!modoEdicao) {
 
             novoFuncionario = new Funcionario();
 
@@ -188,11 +193,11 @@ public class tela_cadastro_funcionario extends javax.swing.JFrame {
         String resposta = null;
         if (!modoEdicao) {
 
-            resposta = ServicoCliente.cadastrarCliente(cliente);
+            resposta = ServicoFuncionario.cadastrarCliente(novoFuncionario);
 
         } else {
 
-            resposta = ServicoCliente.atualizarCliente(cliente);
+            //resposta = ServicoFuncionario.atualizarCliente(novoFuncionario);
         }
 
         if (resposta == null) {
@@ -214,7 +219,20 @@ public class tela_cadastro_funcionario extends javax.swing.JFrame {
         
         
         
+    }                                
+    
+
+        
+        
+        
+        
+      
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void campoTextoDigitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTextoDigitadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoTextoDigitadoActionPerformed
 
     /**
      * @param args the command line arguments
