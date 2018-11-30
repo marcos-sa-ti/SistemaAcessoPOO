@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class ConexaoBanco {
     
-    public  Connection getConnection() throws SQLException, ClassNotFoundException {
+    public  static Connection getConnection() throws SQLException, ClassNotFoundException {
         try {
             Connection connection = null;
             String driverName = "com.mysql.jdbc.Driver";

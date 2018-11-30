@@ -22,10 +22,7 @@ import ConexaoBD.ConexaoBanco;
  */
 public class FuncionarioDAO {
     
-
-    
-    
-    
+            
     
     
     
