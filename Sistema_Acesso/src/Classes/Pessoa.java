@@ -12,8 +12,8 @@ import java.util.Date;
 public class Pessoa {
     private Integer identificador;
     private String nome;
-    private int numerorg;
-    private int numerocpf;
+    private String numerorg;
+    private String numerocpf;
     private Date datadenascimento;
     private String email;
     private Timestamp horaentrada;  
@@ -35,20 +35,20 @@ public class Pessoa {
         this.nome = nome;
     }
     
-    public int getNumerorg() {
+    public String getNumerorg() {
         return numerorg;
     }
     
-    public void setNumerorg(int numerorg) {
+    public void setNumerorg(String numerorg) {
         this.numerorg = numerorg;
     }
 
     
-    public int getNumerocpf() {
+    public String getNumerocpf() {
         return numerocpf;
     }
     
-    public void setNumerocpf(int numerocpf) {
+    public void setNumerocpf(String numerocpf) {
         this.numerocpf = numerocpf;
     }
     

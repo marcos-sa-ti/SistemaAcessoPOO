@@ -8,11 +8,19 @@ package Visual;
 import Classes.Funcionario;
 import Classes.Pessoa;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 
 
 public class tela_cadastro_funcionario extends javax.swing.JFrame {
 
+    private boolean modoEdicao = false;
+
+    //Indica o cliente em edição
+    private Funcionario novoFuncionario = null;
+    
+    
+    
     /**
      * Creates new form tela_cadastro
      */
@@ -156,6 +164,54 @@ public class tela_cadastro_funcionario extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
        
+        if (!modoEdicao) {
+
+            novoFuncionario = new Funcionario();
+
+        } else if (novoFuncionario == null) {
+
+            JOptionPane.showMessageDialog(rootPane,
+                    "Não foi pré-selecionado um funcionário para salvar suas"
+                    + " alterações",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+
+        }
+        
+        novoFuncionario.setNome(campoTextoDigitado.getText());
+        novoFuncionario.setNumerorg(campoRgDigitado.getText());
+        novoFuncionario.setNumerocpf(campoCpfDigitado.getText());
+        novoFuncionario.setEmail(campoEmailDigitado.getText());
+        novoFuncionario.setCargo(campoCargoDigitado.getText());
+        novoFuncionario.setEmpresa(campoEmpresaDigitado.getText());
+         
+        String resposta = null;
+        if (!modoEdicao) {
+
+            resposta = ServicoCliente.cadastrarCliente(cliente);
+
+        } else {
+
+            resposta = ServicoCliente.atualizarCliente(cliente);
+        }
+
+        if (resposta == null) {
+
+            if (!modoEdicao) {
+
+                JOptionPane.showMessageDialog(rootPane,
+                        "Cliente inserido com sucesso",
+                        "Cadastro efetuado",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+
+                this.dispose();
+
+            }
+        
+        
+        
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
